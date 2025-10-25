@@ -28,14 +28,16 @@ public class ShowResult extends AppCompatActivity {
         Cursor cursor=dbHelper.searchDatabyName("Sohan");    //nirdisto data dakhay(id Number)
         tvDisplay.setText("Total Data: "+cursor.getCount()); //count data index
 
-        while (cursor.moveToNext()){                        //getData
-            int id=cursor.getInt(0);             //table index kotote ace
-            String name=cursor.getString(1);
-            String number=cursor.getString(2);
-            tvDisplay.append("\nID:"+id+" Name: "+name+" Number: "+number);
-
+        if (cursor!=null && cursor.getCount()>0){
+            while (cursor.moveToNext()){                        //getData
+                int id=cursor.getInt(0);             //table index kotote ace
+                String name=cursor.getString(1);
+                String number=cursor.getString(2);
+                tvDisplay.append("\nID:"+id+" Name: "+name+" Number: "+number);
+            }
+        }else {
+            tvDisplay.setText("No Data");
         }
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
