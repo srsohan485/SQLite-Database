@@ -51,7 +51,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor searchDatabyName(String name){ //data search korte
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("select * from my_table where name like'%"+name+"%' ",null);  //similardata pate % bebohar korbo
+//        Cursor cursor=db.rawQuery("select * from my_table where name like'%"+name+"%' ",null);  //similardata pate % bebohar korbo
+        Cursor cursor=db.rawQuery("SELECT * FROM my_table WHERE name LIKE ?", new String[]{"%" + name + "%"});
         return cursor;
     }
 }

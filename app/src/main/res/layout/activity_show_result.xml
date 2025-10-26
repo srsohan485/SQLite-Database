@@ -7,12 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".ShowResult"
     android:orientation="vertical"
+    android:padding="16dp"
     >
-    <TextView
+
+    <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvDisplay"
-        android:text="Taxt Here"
-        />
+        android:queryHint="Search by Name" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All Data Will Appear Here"
+            android:textSize="16sp"
+            android:padding="8dp"/>
+    </ScrollView>
 
 </LinearLayout>
